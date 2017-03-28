@@ -1,7 +1,7 @@
 {
-    "name": "react-component-firebase",
+    "name": "react-component-localstorage",
     "version": "0.0.0",
-    "description": "A Firebase implement.",
+    "description": "A Local Storage implement.",
     "main": "entry.jsx",
     "scripts": {
         "test": "karma start",

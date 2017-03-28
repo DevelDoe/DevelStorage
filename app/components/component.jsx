@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: App.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T15:36:59+02:00
+ * @Last modified time: 2017-03-28T22:57:21+02:00
 */
 
 
@@ -24,8 +24,6 @@ var App = React.createClass({
     render: function () {
         var {appName, appStatus, map} = this.props
         var array = localstorage.getArray()
-
-
 
         var renderArray = () => {
 
