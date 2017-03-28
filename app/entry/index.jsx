@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: app.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T11:43:50+02:00
+ * @Last modified time: 2017-03-28T15:34:19+02:00
 */
 
 var React = require('react'),
@@ -15,16 +15,18 @@ var React = require('react'),
 var store = require('store').store(),
     actions = require('actions')
 
+import localstorage from 'app/api/localstorage'
+
 // Redux
 // ######################################
-var unsubscribe = store.subscribe(() =>{})
 
-// Examples
-var appName = "DevelStrap"
-store.dispatch(actions.changeAppName(appName))
-document.title = appName
+var unsubscribe = store.subscribe(() =>{
+    var state = store.getState()
+    localstorage.setArray(state.movies)
+    document.title = state.appName
+})
 
-store.dispatch(actions.changeAppName('DevelPlate'))
+store.dispatch(actions.changeAppName('LocalStorage'))
 store.dispatch(actions.addMovie('Star Wars','Sci-fi'))
 store.dispatch(actions.addMovie('Mad Max','Action'))
 store.dispatch(actions.addMovie('Logan','Action'))
@@ -40,6 +42,7 @@ ul.innerHTML = '<li>Loading </li>'
 var li = document.createElement("li");
 li.appendChild(document.createTextNode(''));
 li.innerHTML = 'Scripting <span class="blink">.</span>'
+document.title = 'Scripting'
 ul.appendChild(li);
 
 // This shows up when react renders

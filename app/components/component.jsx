@@ -3,8 +3,8 @@
 * @Date:   2017-03-08T03:39:38+01:00
 * @Email:  me@andreeray.se
 * @Filename: App.jsx
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-13T20:50:30+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-03-28T15:36:59+02:00
 */
 
 
@@ -14,13 +14,16 @@ var React = require('react'),
     Item = require('item'),
     actions = require('actions')
 
+import localstorage from 'app/api/localstorage'
+
 var App = React.createClass({
     componentWillMount: function() {
         var {dispatch} = this.props
         dispatch(actions.clearStatus())
     },
     render: function () {
-        var {appName, appStatus, array, map} = this.props
+        var {appName, appStatus, map} = this.props
+        var array = localstorage.getArray()
 
 
 
